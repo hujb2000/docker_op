@@ -1,0 +1,4 @@
+FROM node:0.12.7
+
+RUN npm install -g cnpm --registry=https://r.cnpmjs.org
+
