@@ -1,0 +1,1 @@
+docker run --name mysql --restart=always -v /home/hjb/mysql_test/:/etc/mysql/conf.d -v /home/hjb/mysql_test/db/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD='' -e MYSQL_DATABASE= -e MYSQL_USER= -e MYSQL_PASSWORD= -p 3306:3306  -d mysql
