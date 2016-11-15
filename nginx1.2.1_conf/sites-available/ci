@@ -1,0 +1,38 @@
+server{
+          listen 80;
+
+        #  ssl_session_cache    shared:SSL:10m;
+	#  ssl_session_timeout  10m;
+
+	 # ssl_protocols  SSLv2 SSLv3 TLSv1;
+	 # ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+	 # ssl_prefer_server_ciphers   on;
+
+          server_name ci.hzspeed.cn;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+#          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+          location /
+          { 
+ 	       allow 123.58.191.68;
+               allow 114.113.197.131;
+	       deny all;
+               proxy_pass http://ci;
+          }
+          
+	  location /github-webhook 
+          { 
+	       allow 192.30.252.0/24;
+               #allow 192.30.252.42;
+               #allow 192.30.252.40;
+               #allow 192.30.252.41;
+               #allow 192.30.252.43;
+               #allow 192.30.252.44;
+               #allow 192.30.252.45;
+               #allow 192.30.252.46;
+               #allow 192.30.252.39;
+	       deny all;
+               proxy_pass http://ci;
+          }	 
+    }

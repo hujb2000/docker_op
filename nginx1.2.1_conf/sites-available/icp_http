@@ -1,0 +1,20 @@
+server{
+          listen 80;
+
+          server_name icp.hzspeed.cn;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+          location /
+          {
+               proxy_pass http://icp;
+          }
+	  location /admin/ 
+          {
+	       allow 115.236.124.8;
+	       allow 123.58.191.68;
+               deny all;
+               proxy_pass http://icp;
+          }	 
+    }

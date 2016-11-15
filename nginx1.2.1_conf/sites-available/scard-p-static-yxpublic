@@ -1,0 +1,29 @@
+server{
+          listen 80;
+
+          server_name s.y.s.hzspeed.cn s.ys.hzspeed.cn static.yx.scard.hzspeed.cn;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+          location /fonts/
+          {
+               proxy_pass http://yxpublic-p/fonts/;
+          }
+          location /images/
+          {
+               proxy_pass http://yxpublic-p/images/;
+          }
+          location /scripts/
+          {
+               proxy_pass http://yxpublic-p/scripts/;
+          }
+          location /styles/
+          {
+               proxy_pass http://yxpublic-p/styles/;
+          }
+          location /views/
+          {
+               proxy_pass http://yxpublic-p/views/;
+          }
+    }

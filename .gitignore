@@ -18,3 +18,11 @@ stock.json
 *.json
 
 .idea
+mysql_test/db/
+redis_test/db/
+
+nginx1.2.1_conf/access.log
+nginx1.2.1_conf/conf.d/
+nginx1.2.1_conf/index.html
+nginx1.2.1_conf/index.html.1
+nginx1.2.1_conf/logs/	

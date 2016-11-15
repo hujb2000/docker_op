@@ -1,0 +1,44 @@
+server{
+	  listen 443;
+	  ssl on;
+	  ssl_certificate /home/hjb/ssl_test/1_icp.hzspeed.cn_bundle.crt;
+          ssl_certificate_key /home/hjb/ssl_test/newssl.key;
+
+        #  ssl_session_cache    shared:SSL:10m;
+	#  ssl_session_timeout  10m;
+
+	 # ssl_protocols  SSLv2 SSLv3 TLSv1;
+	 # ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+	 # ssl_prefer_server_ciphers   on;
+
+          server_name im.hzspeed.cn;
+
+          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+	  chunked_transfer_encoding  on;
+
+
+          location /v2/
+          {
+	      auth_basic "Registry realm";
+	      auth_basic_user_file /opt/nginx/conf/.htpasswd;
+	       
+	       #auth_ldap "Forbidden";
+	       #auth_ldap_servers ldapserver;
+
+	       add_header 'Docker-Distribution-API-Version' 'registry/2.0' always;
+
+               proxy_pass http://registry;
+               proxy_set_header Host  $http_host;   # requied for docker client's sake
+               proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+	       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	       proxy_set_header X-Forwarded-Proto $scheme;
+	       proxy_read_timeout 900;
+          }
+	  location /admin/ 
+          {
+	       allow 115.236.124.8;
+	       allow 123.58.191.68;
+               deny all;
+               proxy_pass http://icp;
+          }	 
+    }

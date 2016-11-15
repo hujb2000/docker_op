@@ -1,0 +1,18 @@
+server{
+          listen 80;
+	  listen 443;
+
+          server_name dev.lwtsc.com;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+#          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+          location ~ (/api/|/pre/)
+          {
+	       proxy_pass http://dev_lwt;
+          }
+	  location /admin/ 
+         {
+               proxy_pass http://dev_lwt;
+          }	 
+    }

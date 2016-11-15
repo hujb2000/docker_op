@@ -1,0 +1,39 @@
+server{
+          listen 80;
+	  listen 443;
+	  ssl on;
+          ssl_certificate /home/hjb/ssl_test/1_icp.hzspeed.cn_bundle.crt;
+          ssl_certificate_key /home/hjb/ssl_test/newssl.key;
+
+        #  ssl_session_cache    shared:SSL:10m;
+	#  ssl_session_timeout  10m;
+
+	 # ssl_protocols  SSLv2 SSLv3 TLSv1;
+	 # ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+	 # ssl_prefer_server_ciphers   on;
+
+          server_name icp.hzspeed.cn;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+#          client_max_body_size 0;  # disable any limits to avoid HTTP 413 for large image uploads
+          location /
+          {
+	       allow 123.58.191.68;
+               allow 114.113.197.131;
+               deny all;
+	       proxy_pass http://icp;
+          }
+	  location /admin/ 
+         {
+	       allow 115.236.124.8;
+	       allow 123.58.191.68;
+	       allow 218.205.113.98;
+               allow 114.113.197.131;
+               allow 114.113.197.132;
+               allow 223.252.194.101;
+               allow 223.252.194.102;
+               deny all;
+               proxy_pass http://icp;
+          }	 
+    }
