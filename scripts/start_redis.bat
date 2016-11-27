@@ -1,0 +1,1 @@
+docker run -d --name redis1 -h redis1  -p 6379:6379  -v i:/workspace_devops/docker_op/redis_test/redis.conf:/usr/local/etc/redis/redis.conf -v i:/workspace_devops/docker_op/redis_test/db/:/data redis redis-server
