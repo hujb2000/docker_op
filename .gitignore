@@ -25,4 +25,5 @@ nginx1.2.1_conf/access.log
 nginx1.2.1_conf/conf.d/
 nginx1.2.1_conf/index.html
 nginx1.2.1_conf/index.html.1
-nginx1.2.1_conf/logs/	
+nginx1.2.1_conf/logs/
+redis_test/db/dump.rdb	
