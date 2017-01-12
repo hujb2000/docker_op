@@ -1,0 +1,20 @@
+server{
+          listen 80;
+	        listen 443;
+
+          server_name dev.bim.netease.com;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+          location /v1/api
+          {
+            proxy_pass http://127.0.0.1:2222;
+          }
+          location /3dpreviewer{
+            proxy_pass http://127.0.0.1:9091;
+          }
+          location /
+          {
+            proxy_pass http://127.0.0.1:9090;
+          }
+    }
