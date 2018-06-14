@@ -9,6 +9,7 @@ services:
     restart: always
     volumes:
       - 'f:/databases/mysqldb/:/var/lib/mysql'
+      - 'i:/docker_op/mysql_test:/etc/mysql/conf.d'
     env_file:
       - 'i:/docker_op/mysql_test/vars.env'
     ports:
