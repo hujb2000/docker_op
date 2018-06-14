@@ -1,1 +1,2 @@
-docker run --name mysql --restart=always -v i:/workspace_devops/docker_op/mysql_test:/etc/mysql/conf.d -v i:/workspace_devops/docker_op/mysql_test/db/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD='cwps' -e MYSQL_DATABASE=cwps -e MYSQL_USER=cwps -e MYSQL_PASSWORD=cwps -p 3306:3306  -d mysql
+:rem docker run --name mysql --restart=always -v i:/docker_op/mysql_test:/etc/mysql/conf.d -v f:/mysqldb/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD='hsstock' -e MYSQL_DATABASE=hsstock -e MYSQL_USER=hsstock -e MYSQL_PASSWORD=hsstock -p 3306:3306  -d mysql
+docker run --name mysql --restart=always -v f:/databases/mysqldb/:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD='hsstock' -e MYSQL_DATABASE=hsstock -e MYSQL_USER=hsstock -e MYSQL_PASSWORD=hsstock -p 3306:3306  -d mysql
