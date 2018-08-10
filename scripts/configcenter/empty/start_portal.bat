@@ -1,0 +1,1 @@
+docker run -d -p 8070:8070 --restart=always --name apollo-portal  -e spring_datasource_url=jdbc:mysql://10.240.154.201:3306/ApolloPortalDB?characterEncoding=utf8 -e spring_datasource_username=apollo-portal-db -e spring_datasource_password= -e dev_meta=http://10.240.154.201:8080 10.240.154.201:5000/apollo-portal:1.0.0
