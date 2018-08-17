@@ -32,3 +32,4 @@ scripts/start_mongodb_pwd_ignore.sh
 scripts/configcenter/start_adminservice.bat
 scripts/configcenter/start_configservice.bat
 scripts/configcenter/start_portal.bat
+db
