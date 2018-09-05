@@ -1,0 +1,1 @@
+docker run -d -p 8080:8080 --restart=always --name apollo-configservice  -e spring_datasource_url=jdbc:mysql://10.240.154.201:3306/ApolloConfigDB?characterEncoding=utf8 -e spring_datasource_username=apollo-config-db -e spring_datasource_password= 10.240.154.201:5000/apollo-configservice:1.0.0

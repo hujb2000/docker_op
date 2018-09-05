@@ -1,0 +1,1 @@
+docker run --rm --link mongodb:mongo -p 8091:8081 mongo-express

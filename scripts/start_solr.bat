@@ -1,0 +1,1 @@
+docker run --name my_solr -d -p 8983:8983 -t solr

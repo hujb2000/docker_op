@@ -1,0 +1,2 @@
+:rem docker run --name mysql --restart=always -v i:/docker_op/mysql_test:/etc/mysql/conf.d -v f:/mysqldb/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD='hsstock' -e MYSQL_DATABASE=hsstock -e MYSQL_USER=hsstock -e MYSQL_PASSWORD=hsstock -p 3306:3306  -d mysql
+docker run --name mysq3307 --restart=always -v f:/databases/mysqldb3307/:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_ROOT_PASSWORD='hsstock' -e MYSQL_DATABASE=hsstock -e MYSQL_USER=hsstock -e MYSQL_PASSWORD=hsstock -p 3307:3306  -d mysql

@@ -1,0 +1,1 @@
+docker run -d --rm -p 9000:9000 -e SENTRY_SECRET_KEY="n#h@-14yy*kjb&u8#o_3zx(!261(oi_&a==#h3-3mb!v_*4-ja" --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade
