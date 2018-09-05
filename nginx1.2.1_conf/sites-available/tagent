@@ -1,0 +1,19 @@
+server{
+          listen 80;
+	        listen 443;
+
+          server_name t-agent.bimkankan.com;
+          proxy_set_header Host  $http_host;   # requied for docker client's sake
+          proxy_set_header X-Real-IP  $remote_addr;   #pass on real client's IP
+
+          location /v1
+          {
+              proxy_pass http://10.242.49.136:8080;
+          }
+
+          location /
+          {
+              index index.html;
+              root /site/dist;
+          }
+    }
