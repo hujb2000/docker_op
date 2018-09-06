@@ -1,0 +1,1 @@
+docker run --rm --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns --domain example.com
