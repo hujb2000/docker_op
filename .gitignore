@@ -33,3 +33,4 @@ scripts/configcenter/start_adminservice.bat
 scripts/configcenter/start_configservice.bat
 scripts/configcenter/start_portal.bat
 db
+upsource
