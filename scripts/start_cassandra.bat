@@ -1,1 +1,1 @@
-docker run -d --name kong-database -p 9042:9042 cassandra:3
+docker run -d --name kong-database --network=kong-net -p 9042:9042 cassandra:3

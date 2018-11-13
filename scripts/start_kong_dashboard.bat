@@ -1,0 +1,1 @@
+docker run -d --rm --name kong-dashboard -p 8180:8080 pgbi/kong-dashboard start --kong-url http://10.0.0.10:8001
