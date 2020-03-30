@@ -1,1 +1,1 @@
-docker run --name mysql --restart=always  -v /root/docker_op/mysql_test/db/:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes  -e MYSQL_ROOT_PASSWORD='sell' -e MYSQL_DATABASE='sell' -e MYSQL_USER='sell' -e MYSQL_PASSWORD='sell' -p 3306:3306  -d mysql
+docker run --name mysql --restart=always  -v /root/docker_op/mysql_test/db/:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes  -e MYSQL_ROOT_PASSWORD='sell' -e MYSQL_DATABASE='sell' -e MYSQL_USER='sell' -e MYSQL_PASSWORD='bimserver' -p 3306:3306  -d mysql
