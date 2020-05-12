@@ -1,0 +1,1 @@
+docker run --name mysql_office3307 --restart=always  -v /root/docker_op/mysql_test/dboffice/:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes  -e MYSQL_ROOT_PASSWORD='office' -e MYSQL_DATABASE='office' -e MYSQL_USER='office' -e MYSQL_PASSWORD='office' -p 3307:3306  -d mysql

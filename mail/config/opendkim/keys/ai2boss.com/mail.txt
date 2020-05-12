@@ -1,0 +1,3 @@
+mail._domainkey	IN	TXT	( "v=DKIM1; h=sha256; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArUtsHcepHEQEPGwmwXG7tDCv5v/f+/jMbkY+HAXvKDXOYkiqTJsZ8UmKDzUd+VIiTUokwUNLFzIdv455dm/gjTWUtg+2GT+INsdrquuixv8vmesGiZ6ovrFOF8Q62sehrkCQCeEOgoWmiELVDMN2OWMhaL9W29xSY4IR4AOH3pZClwWq+El47BZsxrvjV6cAX/PcL3EfIfnSvS"
+	  "pjTBpw1fNSPm28O2huqG5tcatAHwzp8FV2qYJohI+lWVTqPTeACyIojp3SSU40d/zWX1J+IF7GPBnUH2y0lZlG/lHQgrHh/5wjkHiA4g0Ym5nv6eO/nbpd9S/VUK+XEy4dQoF/vwIDAQAB" )  ; ----- DKIM key mail for ai2boss.com
