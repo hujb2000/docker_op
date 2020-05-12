@@ -1,0 +1,39 @@
+server {
+         listen 80;
+         server_name ta.ai2boss.com;
+         access_log off;
+
+	 location /v1/api
+         {
+              proxy_set_header Host $host;
+              index index.html index.htm;
+              proxy_set_header X-Real-Ip $remote_addr;
+              proxy_set_header X-Forwarded-For $remote_addr;
+              proxy_buffer_size 128k;
+              proxy_buffers 32 32k;
+              proxy_busy_buffers_size 128k;
+              proxy_pass http://ta_dev_b;
+         }
+
+         location / {
+#              proxy_set_header Host $host;
+              proxy_set_header X-Real-Ip $remote_addr;
+#              proxy_set_header X-Forwarded-For $remote_addr;
+              proxy_buffer_size 128k;
+              proxy_buffers 32 32k;
+              proxy_busy_buffers_size 128k;
+	      proxy_pass http://192.168.1.100:8080;
+         }
+	
+         location /# {
+#              proxy_set_header Host $host;
+              proxy_set_header X-Real-Ip $remote_addr;
+ #             proxy_set_header X-Forwarded-For $remote_addr;
+              proxy_buffer_size 128k;
+              proxy_buffers 32 32k;
+              proxy_busy_buffers_size 128k;
+	      proxy_pass http://192.168.1.100:8080;
+        }
+}
+	
+
